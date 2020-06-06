@@ -1,0 +1,20 @@
+<div> <h1>Write Review for <%= @place[:place_name] %></h1> </div>
+
+<form action="/places/<%= @place[:id] %>/reviews/create" method="POST">
+    <div class="form-group">
+        <label>Did you like <%= @place[:place_name] %> ? </label>
+        <select class="form-control" name="like">
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Review Headline</label>
+        <textarea class="form-control" rows="1" name="headline"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Comments</label>
+        <textarea class="form-control" rows="3" name="comments"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

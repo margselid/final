@@ -1,0 +1,5 @@
+<h1>Chicago Coffee Shops</h1>
+
+<% for place in @places %>
+    <p><a href="/places/<%= place[:id] %>"><%= place[:place_name] %></a></p>
+<% end %>

@@ -1,0 +1,27 @@
+<div> 
+    <h1><%= @place[:place_name] %></h1>
+    <p><%= @place[:description] %></p>
+</div>
+
+
+<div>
+    <h2>Reviews (<%= @count %>) </h2>
+        <% for review in @reviews %>
+            <% user = @users_table.where(:id => review[:user_id]).to_a[0] %>
+            <div class="media">
+                <% if review[:like] %>
+                    <i class="fas fa-thumbs-up fa-3x mr-3"></i>
+                <% else %>
+                    <i class="fas fa-thumbs-down fa-3x mr-3"></i>
+                <% end %>
+                <div class="media-body">
+                    <h5 class="mt-0"><%= review[:headline] %></h5>
+                    <%= review [:comments] %>
+                </div>
+            </div>
+        <% end %>
+        <p class="mt-5">
+            <a href="/places/<%= @place[:id] %>/reviews/new" class="btn btn-primary">Write Review</a>
+            <a href="/" class="btn btn-primary">Home</a>
+            </p>
+</div>
