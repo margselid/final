@@ -5,31 +5,46 @@ DB = Sequel.connect(connection_string)                                          
 #######################################################################################
 
 # Database schema - this should reflect your domain model
-DB.create_table! :events do
+DB.create_table! :places do
   primary_key :id
-  String :title
+  String :place_name
   String :description, text: true
-  String :date
-  String :location
+  String :address
+  String :city
+  String :state
+  String :zip
+  String :country
 end
-DB.create_table! :rsvps do
+DB.create_table! :reviews do
   primary_key :id
-  foreign_key :event_id
-  Boolean :going
+  foreign_key :place_id
+  foreign_key :user_id
+  Boolean :like
+  String :headline
+  String :comments, text: true
+end
+DB.create_table! :users do
+  primary_key :id
   String :name
   String :email
-  String :comments, text: true
+  String :password
 end
 
 # Insert initial (seed) data
-events_table = DB.from(:events)
+places_table = DB.from(:places)
 
-events_table.insert(title: "Bacon Burger Taco Fest", 
-                    description: "Here we go again bacon burger taco fans, another Bacon Burger Taco Fest is here!",
-                    date: "June 21",
-                    location: "Kellogg Global Hub")
+places_table.insert(place_name: "The Wormhole Coffee", 
+                    description: "80s-themed rustic coffee shop, complete with a DeLorean, pouring locally roasted coffee.",
+                    address: "1462 N Milwaukee Ave",
+                    city: "Chicago",
+                    state: "IL",
+                    zip: "60622",
+                    country: "USA")
 
-events_table.insert(title: "Kaleapolooza", 
-                    description: "If you're into nutrition and vitamins and stuff, this is the event for you.",
-                    date: "July 4",
-                    location: "Nowhere")
+places_table.insert(place_name: "Everybody's Coffee", 
+                    description: "This cheery coffeehouse with long bar tables offers baked goods made on-site plus frequent events.",
+                    address: "935 W Wilson Ave",
+                    city: "Chicago",
+                    state: "IL",
+                    zip: "60640",
+                    country: "USA")
