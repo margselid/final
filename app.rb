@@ -43,6 +43,9 @@ get "/places/:id" do
     # SELECT COUNT(*) FROM reviews WHERE place_id=:id AND going=1
     @review_count = reviews_table.where(:place_id => params["id"]).count
     @review_sum = reviews_table.where(:place_id =>params["like"]).sum(:id)
+    # Google Maps
+    results = Geocoder.search(@place[:address])
+    @lat_long = results.first.coordinates.join(",")
     view "place"
 end
 
