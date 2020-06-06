@@ -5,7 +5,7 @@
 
 
 <div>
-    <h2>Reviews (<%= @count %>) </h2>
+    <h2>Reviews (<%= @review_count %>) </h2>
         <% for review in @reviews %>
             <% user = @users_table.where(:id => review[:user_id]).to_a[0] %>
             <div class="media">
@@ -17,6 +17,7 @@
                 <div class="media-body">
                     <h5 class="mt-0"><%= review[:headline] %></h5>
                     <%= review [:comments] %>
+                    <p> Posted by <%= user[:name] %> </p>
                 </div>
             </div>
         <% end %>

@@ -48,3 +48,27 @@ places_table.insert(place_name: "Everybody's Coffee",
                     state: "IL",
                     zip: "60640",
                     country: "USA")
+
+places_table.insert(place_name: "Heritage Outpost", 
+                    description: "Heritage Outpost is a little coffee house located at 1325 W. Wilson avenue in the Uptown neighborhood of Chicago, Illinois. Artisanal coffee in a cozy space.",
+                    address: "1325 W. Wilson Ave",
+                    city: "Chicago",
+                    state: "IL",
+                    zip: "60640",
+                    country: "USA")
+
+places_table.insert(place_name: "Emerald City Coffee", 
+                    description: "Espresso drinks, light fare & baked goods offered in a warm, brick-lined space with an arty vibe.",
+                    address: "1224 W Wilson Ave",
+                    city: "Chicago",
+                    state: "IL",
+                    zip: "60640",
+                    country: "USA")
+
+places_table.insert(place_name: "Intelligentsia Coffee Broadway Coffeebar", 
+                    description: "High-end coffee bar chain serving daily roasted brews in an industrial-chic setting.",
+                    address: "3123 N Broadway",
+                    city: "Chicago",
+                    state: "IL",
+                    zip: "60657",
+                    country: "USA")
